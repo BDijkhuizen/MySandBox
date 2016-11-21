@@ -29,7 +29,7 @@ namespace MySandBox.Controllers
 
         public ActionResult Bjorn()
         {
-            ViewBag.Message = "Hello World !";
+            ViewBag.Message = "Hello World Again!";
 
             return View();
         }
