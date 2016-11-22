@@ -1,10 +1,19 @@
 ﻿@{
     Layout = "~/Views/Shared/_NgLayout.cshtml";
 }
-<div class="container">
-    <div class="row">
-        <div class="span10">
-            @Model
-        </div>
+<div class="row">
+    <div class="span10" ng-init='persons=@Html.Raw(Model) '>
+        <table class="table table-condensed table-hover" >
+            <tr>
+                <th>Name</th>
+                <th>Birth date</th>
+                <th>Married</th>
+            </tr>
+            <tr ng-repeat="person in persons">
+                <td>{{person.name}}</td>
+                <td>{{person.birthdate}}</td>
+                <td>{{person.married}}</td>
+            </tr>
+        </table>
     </div>
 </div>
