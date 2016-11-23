@@ -9,36 +9,36 @@ namespace MySandBox.Controllers
 {
     public class HelloController : Controller
     {
-        public class person
+        public class Person
         {
-            public string name { get; set; }
-            public DateTime birthdate { get; set; }
-            public bool married { get; set; }
+            public string Name { get; set; }
+            public DateTime Birthdate { get; set; }
+            public bool Married { get; set; }
         }
         // GET: Hello
         public ActionResult Index()
         {
-            var Output = 
-                new List<person>()
+            var output = 
+                new List<Person>()
                 {
-                    new person(){
-                        name = "Hello World",
-                        birthdate = DateTime.Now,
-                        married = false
+                    new Person(){
+                        Name = "Hello World",
+                        Birthdate = DateTime.Now,
+                        Married = false
                     },
-                    new person(){
-                        name = "Arie Ribbens",
-                        birthdate = DateTime.Now,
-                        married = true
+                    new Person(){
+                        Name = "Arie Ribbens",
+                        Birthdate = DateTime.Now,
+                        Married = true
                     },
-                    new person(){
-                        name = "Rob Williams",
-                        birthdate = DateTime.Now,
-                        married = true
+                    new Person(){
+                        Name = "Rob Williams",
+                        Birthdate = DateTime.Now,
+                        Married = true
                     }
 
                 }.ToList();
-            return View("Index","",JsonConvert.SerializeObject( Output));
+            return View("Index","",JsonConvert.SerializeObject( output));
         }
     }
 }

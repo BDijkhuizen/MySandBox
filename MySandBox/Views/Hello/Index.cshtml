@@ -1,19 +1,35 @@
 ﻿@{
     Layout = "~/Views/Shared/_NgLayout.cshtml";
 }
-<div class="row">
-    <div class="span10" ng-init='persons=@Html.Raw(Model) '>
+
+@section JavaScriptHeadSection{
+    @*<script src="~/Scripts/controllers/PersonsController.js"></script>*@
+    <script>
+        persons=@Html.Raw(Model);
+    </script>
+}
+<div class="row" ng-app="registrationModule" ng-controller="PersonsController">
+    <div class="span10" >
+        <h2>Hi</h2>
         <table class="table table-condensed table-hover" >
             <tr>
                 <th>Name</th>
                 <th>Birth date</th>
                 <th>Married</th>
             </tr>
-            <tr ng-repeat="person in persons">
-                <td>{{person.name}}</td>
-                <td>{{person.birthdate}}</td>
-                <td>{{person.married}}</td>
+            <tr ng-repeat="person in persons | orderBy:sortorder | filter:query" >
+                <td ng-click="personClicked(person)">{{person.Name}}</td>
+                <td>{{person.Birthdate | date}}</td>
+                <td>{{person.Married}}</td>
             </tr>
         </table>
+        <div>
+            <span>Filter on marital status</span>
+            <select ng-model="query.Married">
+                <option value="">default</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
     </div>
 </div>
