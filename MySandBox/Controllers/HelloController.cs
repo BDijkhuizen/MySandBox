@@ -15,30 +15,42 @@ namespace MySandBox.Controllers
             public DateTime Birthdate { get; set; }
             public bool Married { get; set; }
         }
+
+        private string GetJSonData()
+        {
+            var output =
+            new List<Person>()
+            {
+                            new Person(){
+                                Name = "Hello World",
+                                Birthdate = DateTime.Now,
+                                Married = false
+                            },
+                            new Person(){
+                                Name = "Arie Ribbens",
+                                Birthdate = DateTime.Now,
+                                Married = true
+                            },
+                            new Person(){
+                                Name = "Rob Williams",
+                                Birthdate = DateTime.Now,
+                                Married = true
+                            }
+
+            }.ToList();
+
+            return JsonConvert.SerializeObject(output);
+        }
+
+        // GET: JustTheData
+        public ActionResult JustTheData()
+        {
+            return Json(GetJSonData(), JsonRequestBehavior.AllowGet);
+        }
         // GET: Hello
         public ActionResult Index()
         {
-            var output = 
-                new List<Person>()
-                {
-                    new Person(){
-                        Name = "Hello World",
-                        Birthdate = DateTime.Now,
-                        Married = false
-                    },
-                    new Person(){
-                        Name = "Arie Ribbens",
-                        Birthdate = DateTime.Now,
-                        Married = true
-                    },
-                    new Person(){
-                        Name = "Rob Williams",
-                        Birthdate = DateTime.Now,
-                        Married = true
-                    }
-
-                }.ToList();
-            return View("Index","",JsonConvert.SerializeObject( output));
+            return View("Index","", GetJSonData());
         }
     }
 }

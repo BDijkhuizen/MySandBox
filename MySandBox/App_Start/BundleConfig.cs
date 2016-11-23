@@ -12,6 +12,7 @@ namespace MySandBox
                         "~/Scripts/angular.min.js"
                         ,"~/Scripts/angular-sanitize.min.js"
                         , "~/Scripts/Modules/*.js"
+                        , "~/Scripts/Services/*.js"
                         , "~/Scripts/Controllers/*.js"
                         ,"~/Scripts/Filters/*.js"
                         ));
