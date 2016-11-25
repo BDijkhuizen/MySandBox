@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +15,10 @@ namespace MySandBox.Controllers
             public string Name { get; set; }
             public DateTime Birthdate { get; set; }
             public bool Married { get; set; }
+
         }
 
-        private string GetJSonData()
+        private List<Person> GetJSonData()
         {
             var output =
             new List<Person>()
@@ -38,8 +40,7 @@ namespace MySandBox.Controllers
                             }
 
             }.ToList();
-
-            return JsonConvert.SerializeObject(output);
+            return output;
         }
 
         // GET: JustTheData
@@ -50,7 +51,7 @@ namespace MySandBox.Controllers
         // GET: Hello
         public ActionResult Index()
         {
-            return View("Index","", GetJSonData());
+            return View("Index","", JsonConvert.SerializeObject(GetJSonData()));
         }
     }
 }

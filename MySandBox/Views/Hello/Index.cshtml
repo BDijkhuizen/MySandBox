@@ -21,6 +21,11 @@
                 <td>{{person.Birthdate | date}}</td>
                 <td>{{person.Married}}</td>
             </tr>
+            <tr style="background-color: gray" ng-repeat="person in personsRAW | orderBy:sortorder | filter:query">
+                <td ng-click="personClicked(person)">{{person.Name}}</td>
+                <td>{{person.Birthdate}}</td>
+                <td>{{person.Married}}</td>
+            </tr>
         </table>
         <div>
             <span>Filter on marital status</span>

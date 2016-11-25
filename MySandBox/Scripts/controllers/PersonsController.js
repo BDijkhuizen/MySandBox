@@ -3,7 +3,7 @@
         $scope.persons = persons;
         $scope.sortorder = "Name";
         $scope.personClicked = function (person) {
-            console.debug(person.name + " clicked !");
+            console.debug(person.Name + " clicked !");
         };
 
         GetDataService.getData(
