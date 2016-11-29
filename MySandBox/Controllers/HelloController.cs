@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
@@ -52,6 +53,13 @@ namespace MySandBox.Controllers
         public ActionResult Index()
         {
             return View("Index","", JsonConvert.SerializeObject(GetJSonData()));
+        }
+
+        [HttpPost]
+        public HttpStatusCodeResult Save(String dataToSave )
+        {
+            var x = dataToSave;
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
 }

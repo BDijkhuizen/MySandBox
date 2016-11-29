@@ -1,1 +1,1 @@
-﻿var registrationModule = angular.module("registrationModule", ['ngSanitize']);
+﻿var registrationModule = angular.module("registrationModule", ['ngResource']);

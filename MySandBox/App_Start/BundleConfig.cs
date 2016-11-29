@@ -10,8 +10,9 @@ namespace MySandBox
         {
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.min.js"
-                        ,"~/Scripts/angular-sanitize.min.js"
+                        ,"~/Scripts/angular-resource.min.js"
                         , "~/Scripts/Modules/*.js"
+                        , "~/Scripts/Resources/*.js"
                         , "~/Scripts/Services/*.js"
                         , "~/Scripts/Controllers/*.js"
                         ,"~/Scripts/Filters/*.js"
